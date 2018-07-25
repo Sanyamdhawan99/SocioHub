@@ -74,11 +74,12 @@
     <%
         try {
             
-            String uid = request.getParameter("id");
+           
+            HttpSession ss = request.getSession();
+             String uid = request.getParameter("id");
              if(ss.getAttribute("userid")==null) {
                 response.sendRedirect("index.html");
             }
-            HttpSession ss = request.getSession();
             String email = (String)ss.getAttribute("userid"); // main working id
             // for side line
             String qry = "select username, bio, userimg from tbuser where userid='" + email + "'";
